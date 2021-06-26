@@ -137,6 +137,7 @@ section.visual .slide li .scroll {
 section.contents {
     background: #1b1b1b;
     padding: 120px 0;
+    box-sizing: border-box;
 }
 
 /* section contents > .main text */
@@ -149,8 +150,18 @@ section.contents .main-text {
     color: #fff;
     display: flex;
     position: relative;
+    animation: fadeInUp 1s;
 }
 
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+      
+    }
+    100% {
+        opacity: 1;
+    }
+}
 section.contents .main-text::before {
     content: '';
     background: #ffec03;
@@ -172,7 +183,6 @@ section.contents .main-text::after {
 }
 
 section.contents .main-text h3 {
-
     flex: 1;
     font-weight: 700;
     line-height: 1.2;
@@ -195,22 +205,43 @@ section.contents .main-text p span {
 
 /*  section contents > .project  */
 
-section>.project {
-
-}
+section>.project {}
 
 section>.project .top {
     color: #fff;
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     margin: 50px 100px;
 }
 
-section>.project .top h3 {
+section>.project .top .animate {
     font-size: 35px;
     font-weight: bold;
     line-height: 1.3;
+    animation: fadeInLeft 1s 0.5s;
 }
+
+@keyframes fadeInLeft {
+    0%{
+        left: 0;
+        width: 0;
+        opacity: 0;
+
+    }
+
+    50% {
+        width: 50%;
+        opacity: 0.5;
+
+    }
+
+    100% {
+        width: 100%;
+        opacity: 1;
+
+    }
+}
+
 
 section>.project .top a {
     font-size: 18px;
@@ -227,7 +258,7 @@ section>.project ul.animate {
 
 section>.project ul.animate li {
     width: 24%;
-    height: 400px;
+    height: 290px;
     overflow: hidden;
     position: relative;
 
@@ -252,67 +283,77 @@ section>.project ul.animate li a::before {
 
 section>.project ul.animate li a:hover::before {
     width: 100%;
-    
+
 }
 
 section>.project ul.animate li a .name {
+    width: 100%;
+    /* opacity: 0; */
+    padding: 10% 5%;
+    box-sizing: border-box;
+    text-align: right;
+    background: #222;
     color: #fff;
     position: absolute;
     right: 0;
-    bottom: 10%;
+    bottom: 0;
     font-weight: 700;
 
 }
 
-section>.project ul.animate li a .name span {
-
+section>.project ul.animate li a .name::before {
+    content: '';
+    width: 0;
+    opacity: 0;
 }
+
+section>.project ul.animate li a:hover .name::before {
+    width: 100%;
+    opacity: 1;
+}
+
+section>.project ul.animate li a .name span {}
 
 section>.project ul.animate li a .name h3 {
     text-transform: uppercase;
 
 }
 
-/* section>.project .animate li a .name::after {
-    content: '';
-    position: absolute;
-    right: 10%;
-    bottom: 20%;
-}
-
-section>.project .animate li a:hover .name::after {
-    animation: uprising 0.7s;
-}
-@keyframes uprising {
-    0% {
-        right: 0;
-        bottom: 0;
-        opacity: 0;
-    }
-
-    100% {
-        right: 10%;
-        bottom: 20%;
-        opacity: 1;
-    }
-} */
 
 /* \ section contents > .project end */
 
 /*  section contents > .partner  */
-section .partner {
-    
+section .partner .animate {
+    animation: fadeInRight 1s;
+
 }
 
+@keyframes fadeInRight {
+    0% {
+        width: 0;
+        opacity: 0;
+    }
+
+    50% {
+        width: 50%;
+        opacity: 0.5;
+    }
+
+    100% {
+        width: 100%;
+        opacity: 1;
+        
+    }
+}
 section .partner h3 {
     color: #fff;
     font-size: 18px;
-    margin: 150px 0 100px 100px;
+    margin: 150px 0 100px 50px;
 }
 
 section .partner ul {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(4, 1fr);
     /* grid-template-rows: repeat(2,1fr ); */
 }
 
@@ -324,6 +365,8 @@ section .partner ul li {
 
 section .partner ul li img {
     display: inline-block;
+    opacity: 4;
+    /* transition: all 3s; */
 }
 
 /* \section contents > .partner end */
@@ -334,10 +377,27 @@ section .partner ul li img {
 section .contact {
     width: 90%;
     background-image: url(../img/contact.jpg);
-    /* background-attachment: scroll; */
     background-position: center;
     background-size: cover;
+    /* position: sticky; */
     padding: 220px 0;
+    box-sizing: border-box;
+    animation: fadeIn 2s 0.5s;
+}
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+    
 }
 
 section.contents .contact .inner {
@@ -346,6 +406,7 @@ section.contents .contact .inner {
     font-size: 17px;
     color: #fff;
     padding: 0 50px;
+    box-sizing: border-box;
 }
 
 section.contents .contact .inner .tel {
@@ -358,16 +419,18 @@ section.contents .contact .inner .tel {
 
 /* footer */
 footer {
+    position: relative;
     background: #1b1b1b;
 }
 
-footer ul{
+footer ul {
     display: flex;
     justify-content: space-around;
     background: #1b1b1b;
     color: #fff;
     padding: 0 80px 80px;
 }
+
 footer ul li:nth-child(2) {
     font-size: 16px;
     line-height: 2;
@@ -379,8 +442,6 @@ footer ul li span {
     font-weight: bold;
 }
 
-
-
 footer ul li:first-child,
 footer ul li:nth-child(3) {
     color: #999;
@@ -391,8 +452,17 @@ footer .lnr {
     font-family: Linearicons-Free;
     font-style: normal;
     font-weight: 400;
+    color: #fff;
+    font-size: 50px;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    cursor: pointer;
+    
 }
 
 footer .lnr-arrow-up:before {
-    content:"\e877";
+    content: "\e877";
 }
+
+/* \footer end */
