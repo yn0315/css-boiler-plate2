@@ -377,9 +377,11 @@ section .partner ul li img {
 section .contact {
     width: 90%;
     background-image: url(../img/contact.jpg);
-    background-position: center;
+    background-position: left;
     background-size: cover;
     /* position: sticky; */
+    background-attachment: fixed;
+    /* position: relative; */
     padding: 220px 0;
     box-sizing: border-box;
     animation: fadeIn 2s 0.5s;
