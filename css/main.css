@@ -156,12 +156,14 @@ section.contents .main-text {
 @keyframes fadeInUp {
     0% {
         opacity: 0;
-      
+
     }
+
     100% {
         opacity: 1;
     }
 }
+
 section.contents .main-text::before {
     content: '';
     background: #ffec03;
@@ -205,24 +207,38 @@ section.contents .main-text p span {
 
 /*  section contents > .project  */
 
-section>.project {}
-
-section>.project .top {
+section.contents .project {
     color: #fff;
-    display: flex;
-    justify-content: space-between;
-    margin: 50px 100px;
 }
 
-section>.project .top .animate {
+section.contents .project .top {
+    /* color: #fff; */
+    width: 1170px;
+    margin: 130px auto 60px;
+    display: flex;
+    justify-content: space-between;
+    /* margin: 50px 100px; */
+}
+
+/* end shift home 누르면 한 줄 복사 */
+/* 컨트롤 시프트 방향키 하면 단어 하나씩 */
+
+section.contents .project .top h3 {
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 1.1;
+
+}
+
+/* section>.project .top .animate {
     font-size: 35px;
     font-weight: bold;
     line-height: 1.3;
     animation: fadeInLeft 1s 0.5s;
-}
+} */
 
 @keyframes fadeInLeft {
-    0%{
+    0% {
         left: 0;
         width: 0;
         opacity: 0;
@@ -243,12 +259,18 @@ section>.project .top .animate {
 }
 
 
-section>.project .top a {
+section.contents .project .top a {
+    display: block;
     font-size: 18px;
 
 }
 
-section>.project ul.animate {
+section.contents .project .top a span {
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+section.contents .project ul {
     display: flex;
     flex: 1;
     justify-content: space-evenly;
@@ -256,65 +278,91 @@ section>.project ul.animate {
     position: relative;
 }
 
-section>.project ul.animate li {
-    width: 24%;
-    height: 290px;
+section.contents .project ul li {
+    height: 400px;
     overflow: hidden;
     position: relative;
 
 }
 
-section>.project ul.animate li img {
+section.contents .project ul li a {
+    display: block;
     width: 100%;
+    height: 100%;
+
 }
 
+section.contents .project ul.animate li a img {
+    width: 100%;
+    height: 100%;
+}
 
-section>.project ul.animate li a::before {
+/* 같은 크기 박스 만듦 */
+section.contents .project ul.animate li a::before {
     content: '';
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(27, 27, 27, 0.9);
     width: 0;
     height: 100%;
     position: absolute;
-    left: 0;
-    top: 0;
-    transition: 0.7s;
+    /* left: 0;
+    top: 0; */
+    transition: 0.6s;
 
 }
 
-section>.project ul.animate li a:hover::before {
+section.contents .project ul.animate li a:hover::before {
     width: 100%;
 
 }
 
-section>.project ul.animate li a .name {
-    width: 100%;
-    /* opacity: 0; */
-    padding: 10% 5%;
+section.contents .project ul.animate li a .name {
+
+    width: 250px;
+    opacity: 0;
+    padding: 15px;
     box-sizing: border-box;
     text-align: right;
-    background: #222;
-    color: #fff;
+    background: #1b1b1b;
+    /* color: #fff; */
     position: absolute;
-    right: 0;
-    bottom: 0;
+    right: 10px;
+    bottom: 10px;
+    font-size: 22px;
     font-weight: 700;
 
 }
 
-section>.project ul.animate li a .name::before {
+/* 
+section.contents .project ul.animate li a .name::before {
     content: '';
     width: 0;
     opacity: 0;
-}
+} */
 
-section>.project ul.animate li a:hover .name::before {
+section.contents .project ul.animate li a:hover .name {
     width: 100%;
     opacity: 1;
+    animation: rise-up 1s;
 }
 
-section>.project ul.animate li a .name span {}
+@keyframes rise-up {
+    0% {
+        opacity: 0;
+        bottom: -10%;
+    }
 
-section>.project ul.animate li a .name h3 {
+    100% {
+        opacity: 1;
+        bottom: 10px;
+    }
+}
+
+section.contents .project ul.animate li a .name span {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+section.contents .project ul.animate li a .name h3 {
     text-transform: uppercase;
 
 }
@@ -323,7 +371,13 @@ section>.project ul.animate li a .name h3 {
 /* \ section contents > .project end */
 
 /*  section contents > .partner  */
-section .partner .animate {
+section.contents .partner {
+    width: 1170px;
+    margin: 170px auto 100px;
+    color: #fff;
+}
+
+section.contents .partner .animate {
     animation: fadeInRight 1s;
 
 }
@@ -342,31 +396,45 @@ section .partner .animate {
     100% {
         width: 100%;
         opacity: 1;
-        
+
     }
 }
-section .partner h3 {
-    color: #fff;
-    font-size: 18px;
-    margin: 150px 0 100px 50px;
+
+section.contents .partner h3 {
+    /* color: #fff; */
+    font-size: 17px;
+    font-weight: 400;
+    margin-bottom: 80px;
 }
 
-section .partner ul {
+section.contents .partner ul {
+    /* background: tomato; */
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    /* grid-template-rows: repeat(2,1fr ); */
+    grid-template-rows: repeat(2, 150px);
+
+    /* 각 요소들 위치 변경 */
+    justify-items: center;
+    align-items: center;
+    gap: 10px;
 }
 
-section .partner ul li {
-    height: 100px;
+section.contents .partner ul li {
+
+    /* background: red; */
+    /* height: 100px;
     margin-top: 80px;
-    text-align: center;
+    text-align: center; */
 }
 
-section .partner ul li img {
+section.contents .partner ul li img {
     display: inline-block;
-    opacity: 4;
-    /* transition: all 3s; */
+    opacity: 0.4;
+    transition: 0.3s;
+}
+
+section.contents .partner ul li:hover img {
+    opacity: 1;
 }
 
 /* \section contents > .partner end */
@@ -374,21 +442,21 @@ section .partner ul li img {
 /* section contents > .contact  */
 
 
-section .contact {
+section.contents .contact {
     width: 90%;
-    background-image: url(../img/contact.jpg);
-    background-position: left;
+    background: url(../img/contact.jpg) no-repeat center/cover fixed;
+    /* background-position: left;
     background-size: cover;
-    /* position: sticky; */
-    background-attachment: fixed;
+    background-attachment: fixed; */
     /* position: relative; */
     padding: 220px 0;
+    color: #fff;
     box-sizing: border-box;
     animation: fadeIn 2s 0.5s;
 }
 
-@keyframes fadeIn{
-    0%{
+@keyframes fadeIn {
+    0% {
         opacity: 0;
     }
 
@@ -399,18 +467,22 @@ section .contact {
     100% {
         opacity: 1;
     }
-    
+
 }
 
 section.contents .contact .inner {
+    width: 1170px;
     margin: 0 auto;
-    line-height: 1.3;
+    line-height: 1.1;
     font-size: 17px;
-    color: #fff;
-    padding: 0 50px;
+    /* color: #fff; */
+    /* padding: 0 50px; */
     box-sizing: border-box;
 }
 
+section.contents .contact .inner h3 {
+    font-weight: 400;
+}
 section.contents .contact .inner .tel {
     font-size: 55px;
     font-weight: 700;
@@ -423,44 +495,46 @@ section.contents .contact .inner .tel {
 footer {
     position: relative;
     background: #1b1b1b;
+    color: #999;
+    padding: 0 80px 80px;
 }
 
 footer ul {
     display: flex;
     justify-content: space-around;
-    background: #1b1b1b;
-    color: #fff;
+    align-items: center;
+    /* background: #1b1b1b; */
+    /* color: #fff; */
     padding: 0 80px 80px;
 }
 
 footer ul li:nth-child(2) {
     font-size: 16px;
     line-height: 2;
+    color:#eee ;
 }
 
-footer ul li span {
+footer ul li:nth-child(2) span {
     color: #999;
-    margin-right: 5px;
-    font-weight: bold;
+    margin-right: 10px;
+    font-weight: 700;
 }
 
-footer ul li:first-child,
 footer ul li:nth-child(3) {
-    color: #999;
-    line-height: 1.3;
+    /* color: #999; */
+    font-weight: 700;
 }
 
-footer .lnr {
-    font-family: Linearicons-Free;
-    font-style: normal;
+footer .go-top {
+    /* font-family: Linearicons-Free; */
     font-weight: 400;
     color: #fff;
     font-size: 50px;
     position: fixed;
-    right: 20px;
-    bottom: 20px;
+    right: 50px;
+    bottom: 60px;
     cursor: pointer;
-    
+
 }
 
 footer .lnr-arrow-up:before {
@@ -468,3 +542,5 @@ footer .lnr-arrow-up:before {
 }
 
 /* \footer end */
+
+/*  */
