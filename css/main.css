@@ -428,7 +428,7 @@ section.contents .partner ul li {
 }
 
 section.contents .partner ul li img {
-    display: inline-block;
+    /* display: inline-block; */
     opacity: 0.4;
     transition: 0.3s;
 }
@@ -537,7 +537,7 @@ footer .go-top {
 
 }
 
-footer .lnr-arrow-up:before {
+footer .lnr-arrow-up:active {
     content: "\e877";
 }
 
